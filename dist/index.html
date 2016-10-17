@@ -1,17 +1,19 @@
-<!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset='utf-8' />
 	<title>Gamedev Canvas Workshop</title>
-	<link rel="stylesheet" href="css/styles.min.css">
+	<link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
+	<div class="player-arena">
+		<p>Lives: <span id="player1-lives"></span></p>
+	</div>
 	<canvas id='myCanvas' width='640' height='480'></canvas>
-	<p>Hello World Game!</p>
-	<p>Lives: <span id="player-lives"></span></p>
-	<p>Points: <span id="player-points"></span></p>
+	<div class="player-arena">
+		<p>Lives: <span id="player2-lives"></span></p>
+	</div>
 	<script src="js/main.min.js"></script>
 </body>
 

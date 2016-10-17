@@ -4,9 +4,10 @@ var gulp = require('gulp');
 var less = require('gulp-less');
 var browserSync = require('browser-sync').create();
 var useref = require('gulp-useref');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglifyjs');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
+var babel = require("gulp-babel");
 
 gulp.task('watch', ['browserSync', 'less'], function (){
   gulp.watch('app/less/**/*.less', ['less']); 
@@ -33,8 +34,10 @@ gulp.task('browserSync', function() {
 
 gulp.task('useref', function(){
   return gulp.src('app/*.html')
-    .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
+    .pipe(useref())		
+    .pipe(gulpIf('*.js', babel(), uglify().on('error', function(e){
+            console.log(e);
+         })))
 		.pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'));
 });

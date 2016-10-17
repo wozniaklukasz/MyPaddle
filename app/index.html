@@ -10,15 +10,30 @@
 </head>
 
 <body>
-	<h1>MyPaddle - beta version.</h1>
-	<div class="player-arena">
-		<p>Lives: <span id="player1-lives"></span></p>
-	</div>
-	<canvas id='myCanvas' width='640' height='480'></canvas>
-	<div class="player-arena">
-		<p>Lives: <span id="player2-lives"></span></p>
-	</div>
-	<!--build:js js/main.min.js -->	
+	<header>
+		<h1>MyPaddle - beta version.</h1></header>
+	<section>
+		<div class="player-arena">
+			<h3>Player 1</h3>
+			<p>Lives: <span id="player1-lives"></span></p>
+		</div>
+		<canvas id='myCanvas' width='640' height='480'></canvas>
+		<div class="player-arena">
+			<h3>Player 2</h3>
+			<p>Lives: <span id="player2-lives"></span></p>
+		</div>
+	</section>
+	<section>
+		<h2>How to play?</h2>
+		<p>Use <span class="keyboard-button">&#8592;</span> and <span class="keyboard-button">&#8594;</span> to move the paddle as a Player 1.</p>
+		<p>Use <span class="keyboard-button">A</span> and <span class="keyboard-button">D</span> to move the paddle as a Player 2.</p>
+	</section>
+	<footer>
+		<p>Łukasz Woźniak 194125
+			<br/>Projektowanie Gier Komputerowych - laboratorium
+			<br/>Wrocław University of Science and Technology @ 2016</p>
+	</footer>
+	<!--build:js js/main.min.js -->
 	<script src='js/main.js'></script>
 	<!-- endbuild -->
 </body>

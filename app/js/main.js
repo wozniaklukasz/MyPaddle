@@ -4,12 +4,12 @@
  *
  */
 class Ball {
-	constructor(x, y, dx, dy, ballRadius, color) {
+	constructor(x, y, dx, dy, radius, color) {
 		this.x = x;
 		this.y = y;
 		this.dx = dx;
 		this.dy = dy;
-		this.ballRadius = ballRadius;
+		this.radius = radius;
 		this.color = color;
 	};
 };
@@ -55,8 +55,8 @@ var p1_leftKeyPressed = false;
 var p2_rightKeyPressed = false;
 var p2_leftKeyPressed = false;
 var bricks = [];
-var bricksColumns = 4;
-var bricksRows = 5;
+var bricksColumns = 2;
+var bricksRows = 3;
 /*
  *
  *	INIT
@@ -109,10 +109,10 @@ function createBricks() {
 		var sss = 90;
 		bricks[c] = [];
 		for (r = 0; r < bricksRows; r++) {
-			bricks[c][r] = new Brick(sss, ddd, 20, 20, 3);
-			sss += 110;
+			bricks[c][r] = new Brick(sss, ddd, 80, 80, 3);
+			sss += 210;
 		}
-		ddd += 80;
+		ddd += 200;
 	}
 }
 
@@ -128,11 +128,9 @@ function drawBricks() {
 	}
 }
 
-
-
 function drawBall(ball) {
 	canvasContext.beginPath();
-	canvasContext.arc(ball.x, ball.y, ball.ballRadius, 0, Math.PI * 2, false);
+	canvasContext.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2, false);
 	canvasContext.fillStyle = ball.color;
 	canvasContext.fill();
 	canvasContext.closePath();
@@ -141,28 +139,52 @@ function drawBall(ball) {
 function moveBall(ball) {
 	ball.x += ball.dx;
 	ball.y += ball.dy;
-	if (ball.x > canvas.width - ball.ballRadius || ball.x < 0 + ball.ballRadius) {
+	if (ball.x > canvas.width - ball.radius || ball.x < 0 + ball.radius) {
 		ball.dx = -ball.dx;
 	}
-	if (ball.y < 0 + ball.ballRadius) {
+	if (ball.y < 0 + ball.radius) {
 		paddleHit(ball, p1, player1);
 	}
-	/*todo: tu nie moze byc p1 + rozszerzyc warunki o 2 gracza*/
-	else if (ball.y > canvas.height - ball.ballRadius) {
+	else if (ball.y > canvas.height - ball.radius) {
 		paddleHit(ball, p2, player2);
 	}
 	collisionDetection(ball);
+	speedCheck(ball);
 }
+
+function speedCheck(ball) {
+	if (ball.dx > 3) {
+		ball.dx = 1;
+	}
+	if (ball.dy > 3) {
+		ball.dy = 1;
+	}
+	if (ball.dx < -3) {
+		ball.dx = -1;
+	}
+	if (ball.dy < -3) {
+		ball.dy = -1;
+	}
+}
+
 function collisionDetection(ball) {
 	for (c = 0; c < bricksColumns; c++) {
 		for (r = 0; r < bricksRows; r++) {
-			var brick = bricks[c][r];
-			if (ball.x > brick.x && ball.x < brick.x + brick.width && ball.y > brick.y && ball.y < brick.y + brick.height) {
-				ball.dx = -ball.dx;
+			let brick = bricks[c][r];
+			if ((ball.x >= brick.x - ball.radius) && (ball.x <= brick.x + brick.width + ball.radius)) {
+				if ((.5 + ball.y - ball.radius == brick.y + brick.height) || (.5 + ball.y + ball.radius == brick.y) || (ball.y - ball.radius == brick.y + brick.height) || (ball.y + ball.radius == brick.y)) {
+					ball.dy = -ball.dy;
+				}
+			}
+			if ((ball.y >= brick.y - ball.radius) && (ball.y <= brick.y + brick.height + ball.radius)) {
+				if ((.5 + ball.x + ball.radius == brick.x) || (.5 + ball.x - ball.radius == brick.x + brick.width) || (ball.x + ball.radius == brick.x) || (ball.x - ball.radius == brick.x + brick.width)) {
+					ball.dx = -ball.dx;
+				}
 			}
 		}
 	}
 }
+
 function paddleHit(ball, paddle, player) {
 	if (ball.x >= paddle.positionX && ball.x <= (paddle.positionX + paddle.width)) {
 		ball.dy = -ball.dy;

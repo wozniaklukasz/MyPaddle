@@ -46,8 +46,8 @@ var canvas = document.getElementById('myCanvas');
 var canvasContext = canvas.getContext('2d');
 var b1 = new Ball((canvas.width - 5) / 2, (canvas.height - 5) / 2, 2, 2, 10, '#E84A5F');
 var b2 = new Ball(500, 10, 3, 1, 10, '#E8A45F');
-var p1 = new Paddle(150, 10, 0, 0, 7, '#CBE86B');
-var p2 = new Paddle(150, 10, 0, (canvas.height - 10), 7, '#CB8E6B');
+var p1 = new Paddle(150, 5, 0, 0, 7, '#CBE86B');
+var p2 = new Paddle(150, 5, 0, (canvas.height - 5), 7, '#CB8E6B');
 var player1 = new Player(5);
 var player2 = new Player(5);
 var p1_rightKeyPressed = false;
@@ -93,6 +93,7 @@ function setPlayerLives() {
  */
 function draw() {
 	canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+	drawBricks();
 	drawBall(b1);
 	//	drawBall(b2);
 	drawPaddle(p1);
@@ -100,7 +101,6 @@ function draw() {
 	moveBall(b1);
 	//	moveBall(b2);
 	movePaddle();
-	drawBricks();
 }
 /* todo: sss i ddd do poprawy (rysowanie odstepow) -> zamienic na pozycje poczatkowa bricksow i ich paddingi)*/
 function createBricks() {
@@ -121,7 +121,12 @@ function drawBricks() {
 		for (r = 0; r < bricksRows; r++) {
 			canvasContext.beginPath();
 			canvasContext.rect(bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
-			canvasContext.fillStyle = "#0095DD";
+			if (bricks[c][r].lives > 0) {
+				canvasContext.fillStyle = "#0095DD";
+			}
+			else {
+				canvasContext.fillStyle = "#556270";
+			}
 			canvasContext.fill();
 			canvasContext.closePath();
 		}
@@ -142,49 +147,42 @@ function moveBall(ball) {
 	if (ball.x > canvas.width - ball.radius || ball.x < 0 + ball.radius) {
 		ball.dx = -ball.dx;
 	}
-	if (ball.y < 0 + ball.radius) {
+	if (ball.y < p1.height + ball.radius) {
 		paddleHit(ball, p1, player1);
 	}
-	else if (ball.y > canvas.height - ball.radius) {
+	else if (ball.y > canvas.height - p1.height - ball.radius) {
 		paddleHit(ball, p2, player2);
 	}
 	collisionDetection(ball);
-	speedCheck(ball);
-}
-
-function speedCheck(ball) {
-	if (ball.dx > 3) {
-		ball.dx = 1;
-	}
-	if (ball.dy > 3) {
-		ball.dy = 1;
-	}
-	if (ball.dx < -3) {
-		ball.dx = -1;
-	}
-	if (ball.dy < -3) {
-		ball.dy = -1;
-	}
 }
 
 function collisionDetection(ball) {
 	for (c = 0; c < bricksColumns; c++) {
 		for (r = 0; r < bricksRows; r++) {
 			let brick = bricks[c][r];
-			if ((ball.x >= brick.x - ball.radius) && (ball.x <= brick.x + brick.width + ball.radius)) {
-				if ((.5 + ball.y - ball.radius == brick.y + brick.height) || (.5 + ball.y + ball.radius == brick.y) || (ball.y - ball.radius == brick.y + brick.height) || (ball.y + ball.radius == brick.y)) {
-					ball.dy = -ball.dy;
+			if (brick.lives > 0) {
+				if ((ball.x >= brick.x - ball.radius) && (ball.x <= brick.x + brick.width + ball.radius)) {
+					if ((.5 + ball.y - ball.radius == brick.y + brick.height) || (.5 + ball.y + ball.radius == brick.y) || (ball.y - ball.radius == brick.y + brick.height) || (ball.y + ball.radius == brick.y)) {
+						ball.dy = -ball.dy;
+						brickDamage(bricks[c][r]);
+					}
 				}
-			}
-			if ((ball.y >= brick.y - ball.radius) && (ball.y <= brick.y + brick.height + ball.radius)) {
-				if ((.5 + ball.x + ball.radius == brick.x) || (.5 + ball.x - ball.radius == brick.x + brick.width) || (ball.x + ball.radius == brick.x) || (ball.x - ball.radius == brick.x + brick.width)) {
-					ball.dx = -ball.dx;
+				if ((ball.y >= brick.y - ball.radius) && (ball.y <= brick.y + brick.height + ball.radius)) {
+					if ((.5 + ball.x + ball.radius == brick.x) || (.5 + ball.x - ball.radius == brick.x + brick.width) || (ball.x + ball.radius == brick.x) || (ball.x - ball.radius == brick.x + brick.width)) {
+						ball.dx = -ball.dx;
+						brickDamage(bricks[c][r]);
+					}
 				}
 			}
 		}
 	}
 }
 
+function brickDamage(brick) {
+	brick.lives--;
+	if (brick.lives == 0) {}
+}
+/*todo: tutaj poprawa funkcji DRY!*/
 function paddleHit(ball, paddle, player) {
 	if (ball.x >= paddle.positionX && ball.x <= (paddle.positionX + paddle.width)) {
 		ball.dy = -ball.dy;

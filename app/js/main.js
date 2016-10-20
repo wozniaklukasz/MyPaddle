@@ -23,11 +23,7 @@ class Paddle {
 		this.color = color;
 	};
 };
-class Player {
-	constructor(lives) {
-		this.lives = lives;
-	};
-};
+
 class Brick {
 	constructor(x, y, width, height, lives) {
 		this.x = x;
@@ -48,8 +44,8 @@ var b1 = new Ball((canvas.width - 5) / 2, (canvas.height - 5) / 2, 2, 2, 10, '#E
 var b2 = new Ball(500, 10, 3, 1, 10, '#E8A45F');
 var p1 = new Paddle(150, 5, 0, 0, 7, '#CBE86B');
 var p2 = new Paddle(150, 5, 0, (canvas.height - 5), 7, '#CB8E6B');
-var player1 = new Player(5);
-var player2 = new Player(5);
+var player1 = playerClass.player1;
+var player2 = playerClass.player2;
 var p1_rightKeyPressed = false;
 var p1_leftKeyPressed = false;
 var p2_rightKeyPressed = false;
@@ -79,13 +75,10 @@ function init() {
 //	return Math.floor(Math.random() * (max - min + 1)) + min + Math.random();
 //}
 function setText() {
-	setPlayerLives();
+	playerClass.setPlayerLives;
 }
 
-function setPlayerLives() {
-	document.getElementById('player1-lives').innerHTML = player1.lives;
-	document.getElementById('player2-lives').innerHTML = player2.lives;
-}
+
 /*
  *
  *	DRAW & MOVE
@@ -190,7 +183,8 @@ function paddleHit(ball, paddle, player) {
 	else {
 		ball.dy = -ball.dy;
 		player.lives--;
-		setPlayerLives();
+			playerClass.setPlayerLives;
+
 	}
 }
 

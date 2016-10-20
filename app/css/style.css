@@ -34,11 +34,7 @@ h1 {
   border-bottom: 1px solid #2A363B;
   padding: 20px;
   -webkit-text-stroke: 1px white;
-  text-shadow: 1px 1px 0 #0095DD,
-		2px 2px 0 #0095DD,
-		3px 3px 0 #0095DD,
-		3px 4px 0 #0095DD,
-		3px 5px 0 #0095DD;
+  text-shadow: 1px 1px 0 #0095DD, 2px 2px 0 #0095DD, 3px 3px 0 #0095DD, 3px 4px 0 #0095DD, 3px 5px 0 #0095DD;
 }
 h2 {
   margin-bottom: 20px;

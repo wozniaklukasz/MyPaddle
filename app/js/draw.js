@@ -8,7 +8,7 @@ function draw() {
 	moveBall(ball1);
 	//	moveBall(b2);
 	movePaddle();
-}
+};
 
 function drawPaddle(paddle) {
 	canvasContext.beginPath();
@@ -16,7 +16,7 @@ function drawPaddle(paddle) {
 	canvasContext.fillStyle = paddle.color;
 	canvasContext.fill();
 	canvasContext.closePath();
-}
+};
 
 function drawBall(ball) {
 	canvasContext.beginPath();
@@ -24,7 +24,7 @@ function drawBall(ball) {
 	canvasContext.fillStyle = ball.color;
 	canvasContext.fill();
 	canvasContext.closePath();
-}
+};
 
 function drawBricks(brickPositionDef) {
 	if (!brickPositionDef.created) {
@@ -44,4 +44,4 @@ function drawBricks(brickPositionDef) {
 			canvasContext.closePath();
 		}
 	}
-}
+};

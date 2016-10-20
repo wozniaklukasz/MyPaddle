@@ -11,19 +11,19 @@ function movePaddle() {
 	else if (paddle2_leftKeyPressed) {
 		movePaddleLeft(paddle2);
 	}
-}
+};
 
 function movePaddleRight(paddle) {
 	if (paddle.positionX < canvas.width - paddle.width) {
 		paddle.positionX += paddle.speed;
 	}
-}
+};
 
 function movePaddleLeft(paddle) {
 	if (paddle.positionX > 0) {
 		paddle.positionX -= paddle.speed;
 	}
-}
+};
 
 function moveBall(ball) {
 	ball.x += ball.dx;
@@ -38,7 +38,7 @@ function moveBall(ball) {
 		paddleHit(ball, paddle2, player2);
 	}
 	collisionDetection(ball);
-}
+};
 
 function collisionDetection(ball) {
 	for (c = 0; c < brickPositionDef.columns; c++) {
@@ -60,7 +60,7 @@ function collisionDetection(ball) {
 			}
 		}
 	}
-}
+};
 /*todo: tutaj poprawa funkcji DRY!*/
 function paddleHit(ball, paddle, player) {
 	if (ball.x >= paddle.positionX && ball.x <= (paddle.positionX + paddle.width)) {
@@ -71,4 +71,4 @@ function paddleHit(ball, paddle, player) {
 		player.lives--;
 		setPlayerLives();
 	}
-}
+};

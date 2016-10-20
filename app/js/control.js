@@ -22,4 +22,4 @@ onkeydown = onkeyup = function (e) {
 		paddle2_leftKeyPressed = true;
 	}
 	else paddle2_leftKeyPressed = false;
-}
+};

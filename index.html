@@ -1,8 +1,63 @@
 <html>
-<meta http-equiv="refresh" content="0; url=https://wozniaklukasz.github.io/MyPaddle/app/" />
+
+<head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		body {
+			background: #556270;
+		}
+		
+		div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+		
+		a {
+			padding: 20px;
+			border-radius: 3px;
+			color: #2a363b;
+			text-decoration: none;
+			margin: 20px;
+			display: block;
+			text-align: center;
+			-webkit-transition: all 1s;
+			transition: width all 1s;
+			border-bottom: 3px solid;
+		}
+		
+		a:first-of-type {
+			background: #E84A5F;
+			border-color: #c34253;
+		}
+		
+		a:first-of-type:hover {
+			background: #c34253;
+			border-color: #E84A5F;
+		}
+		
+		a:last-of-type {
+			background: #CBE86B;
+			border-color: #97ad50;
+		}
+		
+		a:last-of-type:hover {
+			background: #97ad50;
+			border-color: #CBE86B;
+		}
+	</style>
+</head>
 
 <body>
-	<a href="https://wozniaklukasz.github.io/MyPaddle/app/">MyPaddle</a>
+	<div>
+		<a href="app/index.html">MyPaddle (Development)</a> 
+		<a href="dist/index.html">MyPaddle (Distribution)</a>
+	</div>
 </body>
 
 </html>

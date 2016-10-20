@@ -17,7 +17,10 @@
 			<h3>Player 1</h3>
 			<p>Lives: <span id="player1-lives"></span></p>
 		</div>
-		<canvas id='myCanvas' width='640' height='480'></canvas>
+		<div class="canvas-wr">
+			<!--<div id="play-btn-wr"><span id="play-btn" class="btn">PLAY!</span></div>-->
+			<canvas id='myCanvas' width='640' height='480'></canvas>
+		</div>
 		<div class="player-arena">
 			<h3>Player 2</h3>
 			<p>Lives: <span id="player2-lives"></span></p>
@@ -33,6 +36,7 @@
 			<br/>Projektowanie Gier Komputerowych - laboratorium
 			<br/>Wrocław University of Science and Technology @ 2016</p>
 	</footer>
+	<script src='js/lib/jquery-3.1.1.min.js'></script>
 	<!--build:js js/main.min.js -->
 	<script src='js/control.js'></script>
 	<script src='js/class.js'></script>

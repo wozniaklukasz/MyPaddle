@@ -21,6 +21,7 @@ class Paddle {
 class Player {
 	constructor(lives) {
 		this.lives = lives;
+		this.liveLosed = false;
 	};
 };
 class Brick {

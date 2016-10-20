@@ -1,12 +1,13 @@
-function draw() {
+function play() {
 	canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+	drawWall();
 	drawBricks(brickPositionDef);
 	drawBall(ball1);
-	//	drawBall(b2);
+	//drawBall(ball2);
 	drawPaddle(paddle1);
 	drawPaddle(paddle2);
 	moveBall(ball1);
-	//	moveBall(b2);
+	//moveBall(ball2);
 	movePaddle();
 };
 
@@ -45,3 +46,26 @@ function drawBricks(brickPositionDef) {
 		}
 	}
 };
+
+function drawWall() {
+	canvasContext.beginPath();
+	canvasContext.rect(0, 0, canvas.width, 5);
+	if (player1.liveLosed) {
+		canvasContext.fillStyle = 'red';
+	}
+	else {
+		canvasContext.fillStyle = 'black';
+	}
+	canvasContext.fill();
+	canvasContext.closePath();
+	canvasContext.beginPath();
+	canvasContext.rect(0, canvas.height - 5, canvas.width, 5);
+	if (player2.liveLosed) {
+		canvasContext.fillStyle = 'red';
+	}
+	else {
+		canvasContext.fillStyle = 'black';
+	}
+	canvasContext.fill();
+	canvasContext.closePath();
+}

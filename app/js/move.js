@@ -61,14 +61,19 @@ function collisionDetection(ball) {
 		}
 	}
 };
-/*todo: tutaj poprawa funkcji DRY!*/
+
 function paddleHit(ball, paddle, player) {
-	if (ball.x >= paddle.positionX && ball.x <= (paddle.positionX + paddle.width)) {
-		ball.dy = -ball.dy;
-	}
-	else {
-		ball.dy = -ball.dy;
-		player.lives--;
-		setPlayerLives();
-	}
+	if (!(ball.x >= paddle.positionX && ball.x <= (paddle.positionX + paddle.width))) {
+		playerLoseLive(player);
+	};
+	ball.dy = -ball.dy;
 };
+
+function playerLoseLive(player) {
+	player.lives--;
+	player.liveLosed = true;
+	setTimeout(function () {
+		player.liveLosed = false;
+	}, 100);
+	setPlayerLives();
+}

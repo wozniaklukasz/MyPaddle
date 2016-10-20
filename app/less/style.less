@@ -1,3 +1,5 @@
+@color-red: #E84A5F;
+@color-blue: #0095DD;
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 * {
 	padding: 0;
@@ -15,6 +17,13 @@ section,
 footer {
 	width: 640px;
 	margin: 0 auto;
+}
+
+.btn {
+	padding: 10px 20px;
+	border-radius: 3px;
+	border-bottom: 3px solid;
+	cursor: pointer;
 }
 
 span {
@@ -40,7 +49,7 @@ h1 {
 	border-bottom: 1px solid #2A363B;
 	padding: 20px;
 	-webkit-text-stroke: 1px white;
-	text-shadow: 1px 1px 0 #0095DD, 2px 2px 0 #0095DD, 3px 3px 0 #0095DD, 3px 4px 0 #0095DD, 3px 5px 0 #0095DD;
+	text-shadow: 1px 1px 0 @color-blue, 2px 2px 0 @color-blue, 3px 3px 0 @color-blue, 3px 4px 0 @color-blue, 3px 5px 0 @color-blue;
 }
 
 h2 {
@@ -62,4 +71,25 @@ footer {
 	border-top: 1px solid #2A363B;
 	margin-top: 20px;
 	font-size: 12px;
+}
+
+.canvas-wr {
+	position: relative;
+	#play-btn-wr {
+		background: rgba(0, 0, 0, .5);
+		margin: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		#play-btn {
+			background: @color-red;
+			font-size: 32px;
+			color: white;
+		}
+	}
 }

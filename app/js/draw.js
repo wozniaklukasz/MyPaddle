@@ -21,9 +21,7 @@ function drawPaddle(paddle) {
 
 function drawBall(ball) {
 	canvasContext.beginPath();
-	canvasContext.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2, false);
-	canvasContext.fillStyle = ball.color;
-	canvasContext.fill();
+	drawRotatedImage(ball1_img, ball.x, ball.y, rotateImg_counter);
 	canvasContext.closePath();
 };
 
@@ -35,16 +33,16 @@ function drawBricks(brickPositionDef) {
 		for (r = 0; r < brickPositionDef.rows; r++) {
 			canvasContext.beginPath();
 			if (bricks[c][r].lives > 4) {
-				canvasContext.drawImage(brick3live, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
+				canvasContext.drawImage(brick3live_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
 			}
 			else if (bricks[c][r].lives > 2) {
-				canvasContext.drawImage(brick2live, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
+				canvasContext.drawImage(brick2live_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
 			}
 			else if (bricks[c][r].lives > 0) {
-				canvasContext.drawImage(brick1live, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
+				canvasContext.drawImage(brick1live_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
 			}
-			drawRotatedImage(brick1live, 100, 100, rotateImg_counter);
-			rotateImg_counter += .1;
+			
+			
 			canvasContext.closePath();
 		}
 	}
@@ -54,8 +52,9 @@ function drawRotatedImage(image, x, y, angle) {
 	canvasContext.save();
 	canvasContext.translate(x, y);
 	canvasContext.rotate(angle * rotateImg_radians);
-	canvasContext.drawImage(image, -(image.width / 2), -(image.height / 2));
+	canvasContext.drawImage(image, -(image.width/2), -(image.height/2),image.width, image.height);
 	canvasContext.restore();
+	rotateImg_counter += 5;
 };
 
 function drawWall() {

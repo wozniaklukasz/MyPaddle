@@ -43,9 +43,19 @@ function drawBricks(brickPositionDef) {
 			else if (bricks[c][r].lives > 0) {
 				canvasContext.drawImage(brick1live, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
 			}
+			drawRotatedImage(brick1live, 100, 100, rotateImg_counter);
+			rotateImg_counter += .1;
 			canvasContext.closePath();
 		}
 	}
+};
+
+function drawRotatedImage(image, x, y, angle) {
+	canvasContext.save();
+	canvasContext.translate(x, y);
+	canvasContext.rotate(angle * rotateImg_radians);
+	canvasContext.drawImage(image, -(image.width / 2), -(image.height / 2));
+	canvasContext.restore();
 };
 
 function drawWall() {

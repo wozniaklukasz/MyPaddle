@@ -40,3 +40,6 @@ function brickDamage(brick) {
 var brick1live = document.getElementById('brick-1-live');
 var brick2live = document.getElementById('brick-2-live');
 var brick3live = document.getElementById('brick-3-live');
+/* Rotated img */
+var rotateImg_radians = Math.PI / 180;
+var rotateImg_counter = 0;

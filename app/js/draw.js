@@ -34,14 +34,15 @@ function drawBricks(brickPositionDef) {
 	for (c = 0; c < brickPositionDef.columns; c++) {
 		for (r = 0; r < brickPositionDef.rows; r++) {
 			canvasContext.beginPath();
-			canvasContext.rect(bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
-			if (bricks[c][r].lives > 0) {
-				canvasContext.fillStyle = "#0095DD";
+			if (bricks[c][r].lives > 4) {
+				canvasContext.drawImage(brick3live, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
 			}
-			else {
-				canvasContext.fillStyle = "#556270";
+			else if (bricks[c][r].lives > 2) {
+				canvasContext.drawImage(brick2live, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
 			}
-			canvasContext.fill();
+			else if (bricks[c][r].lives > 0) {
+				canvasContext.drawImage(brick1live, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
+			}
 			canvasContext.closePath();
 		}
 	}

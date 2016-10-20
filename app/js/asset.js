@@ -15,7 +15,7 @@ function createBricks(brickPositionDef) {
 		bricks[c] = [];
 		var y = brickPositionDef.y;
 		for (r = 0; r < brickPositionDef.rows; r++) {
-			bricks[c][r] = new Brick(x, y, 40, 40, 3);
+			bricks[c][r] = new Brick(x, y, 40, 40, 6);
 			y += brickPositionDef.marginTop;
 		}
 		x += brickPositionDef.marginLeft;
@@ -36,3 +36,7 @@ function brickDamage(brick) {
 	brick.lives--;
 	if (brick.lives == 0) {}
 };
+/* Images */
+var brick1live = document.getElementById('brick-1-live');
+var brick2live = document.getElementById('brick-2-live');
+var brick3live = document.getElementById('brick-3-live');

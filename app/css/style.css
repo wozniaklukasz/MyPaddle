@@ -80,3 +80,6 @@ footer {
   font-size: 32px;
   color: white;
 }
+.canvas-graphics {
+  display: none;
+}

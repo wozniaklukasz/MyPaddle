@@ -10,31 +10,31 @@ var bricks = [];
 var brickPositionDef = new BrickPositionDef(4, 4, 150, 80, 100, 100);
 
 function createBricks(brickPositionDef) {
-	var x = brickPositionDef.x;
-	for (c = 0; c < brickPositionDef.columns; c++) {
-		bricks[c] = [];
-		var y = brickPositionDef.y;
-		for (r = 0; r < brickPositionDef.rows; r++) {
-			bricks[c][r] = new Brick(x, y, 40, 40, 6);
-			y += brickPositionDef.marginTop;
-		}
-		x += brickPositionDef.marginLeft;
-	}
-	brickPositionDef.created = true;
+    var x = brickPositionDef.x;
+    for (c = 0; c < brickPositionDef.columns; c++) {
+        bricks[c] = [];
+        var y = brickPositionDef.y;
+        for (r = 0; r < brickPositionDef.rows; r++) {
+            bricks[c][r] = new Brick(x, y, 40, 40, 6);
+            y += brickPositionDef.marginTop;
+        }
+        x += brickPositionDef.marginLeft;
+    }
+    brickPositionDef.created = true;
 };
 
 function setText() {
-	setPlayerLives();
+    setPlayerLives();
 };
 
 function setPlayerLives() {
-	document.getElementById('player1-lives').innerHTML = player1.lives;
-	document.getElementById('player2-lives').innerHTML = player2.lives;
+    document.getElementById('player1-lives').innerHTML = player1.lives;
+    document.getElementById('player2-lives').innerHTML = player2.lives;
 };
 
 function brickDamage(brick) {
-	brick.lives--;
-	if (brick.lives == 0) {}
+    brick.lives--;
+    if (brick.lives == 0) {}
 };
 /* Images */
 var brick1live_img = document.getElementById('brick-1-live');

@@ -1,5 +1,5 @@
 window.onload = function() {
-init();
+    init();
 };
 
 //(jQuery)('#play-btn').on('click', function () {
@@ -8,6 +8,6 @@ init();
 //});
 
 function init() {
-	setInterval(play, 15);
-	setText();
+    setInterval(play, 15);
+    setText();
 };

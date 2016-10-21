@@ -13,9 +13,11 @@ function play() {
 
 function drawPaddle(paddle) {
     canvasContext.beginPath();
-    canvasContext.rect(paddle.positionX, paddle.positionY, paddle.width, paddle.height);
-    canvasContext.fillStyle = paddle.color;
-    canvasContext.fill();
+    canvasContext.drawImage(paddle_img, paddle.positionX, paddle.positionY, paddle.width, paddle.height);
+
+    // canvasContext.rect(paddle.positionX, paddle.positionY, paddle.width, paddle.height);
+    // canvasContext.fillStyle = paddle.color;
+    // canvasContext.fill();
     canvasContext.closePath();
 };
 

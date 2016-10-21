@@ -1,99 +1,82 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
-
 body {
-    background: #556270;
-    color: #E9EFF2;
-    font-family: 'Rubik', sans-serif;
+  background: #556270;
+  color: #E9EFF2;
+  font-family: 'Rubik', sans-serif;
 }
-
 header,
 section,
 footer {
-    width: 640px;
-    margin: 0 auto;
+  width: 640px;
+  margin: 0 auto;
 }
-
 .btn {
-    padding: 10px 20px;
-    border-radius: 3px;
-    border-bottom: 3px solid;
-    cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border-bottom: 3px solid;
+  cursor: pointer;
 }
-
 span {
-    color: #FECEA8;
-    font-weight: 700;
+  color: #FECEA8;
+  font-weight: 700;
 }
-
 canvas {
-    background: #2A363B;
-    display: block;
-    margin: 0 auto;
+  background: #2A363B;
+  display: block;
+  margin: 0 auto;
 }
-
 .player-arena {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px;
 }
-
 h1 {
-    text-align: center;
-    font-size: 55px;
-    color: white;
-    border-bottom: 1px solid #2A363B;
-    padding: 20px;
-    -webkit-text-stroke: 1px white;
-    text-shadow: 1px 1px 0 #0095DD, 2px 2px 0 #0095DD, 3px 3px 0 #0095DD, 3px 4px 0 #0095DD, 3px 5px 0 #0095DD;
+  text-align: center;
+  font-size: 55px;
+  color: white;
+  border-bottom: 1px solid #2A363B;
+  padding: 20px;
+  -webkit-text-stroke: 1px white;
+  text-shadow: 1px 1px 0 #0095DD, 2px 2px 0 #0095DD, 3px 3px 0 #0095DD, 3px 4px 0 #0095DD, 3px 5px 0 #0095DD;
 }
-
 h2 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-
 .keyboard-button {
-    padding: 5px;
-    background: white;
-    color: #2a363b;
-    border-radius: 3px;
-    display: inline-block;
-    margin: 5px;
+  padding: 5px;
+  background: white;
+  color: #2a363b;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 5px;
 }
-
 footer {
-    padding: 20px;
-    color: #2a363b;
-    border-top: 1px solid #2A363B;
-    margin-top: 20px;
-    font-size: 12px;
+  padding: 20px;
+  color: #2a363b;
+  border-top: 1px solid #2A363B;
+  margin-top: 20px;
+  font-size: 12px;
 }
-
 .canvas-wr {
-    position: relative;
+  position: relative;
 }
-
 .canvas-wr #play-btn-wr {
-    background: rgba(0, 0, 0, 0.5);
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .canvas-wr #play-btn-wr #play-btn {
-    background: #E84A5F;
-    font-size: 32px;
-    color: white;
-}
-
-.canvas-graphics {
-    display: none;
+  background: #E84A5F;
+  font-size: 32px;
+  color: white;
 }

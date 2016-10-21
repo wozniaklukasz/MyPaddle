@@ -42,6 +42,8 @@ var brick2live_img = document.getElementById('brick-2-live');
 var brick3live_img = document.getElementById('brick-3-live');
 var ball1_img = document.getElementById('ball-1');
 var ball2_img = document.getElementById('ball-2');
+var paddle_img = document.getElementById('paddle-img');
+
 /* Rotated img */
 var rotateImg_radians = Math.PI / 180;
 var rotateImg_counter = 0;

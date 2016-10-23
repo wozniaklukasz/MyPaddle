@@ -3,27 +3,29 @@ function play() {
     drawWall();
     drawBricks(brickPositionDef);
     drawBall(ball1);
-    //drawBall(ball2);
+    drawBall(ball2);
     drawPaddle(paddle1);
     drawPaddle(paddle2);
     moveBall(ball1);
-    //moveBall(ball2);
+    moveBall(ball2);
     movePaddle();
 };
 
 function drawPaddle(paddle) {
     canvasContext.beginPath();
     canvasContext.drawImage(paddle_img, paddle.positionX, paddle.positionY, paddle.width, paddle.height);
-
-    // canvasContext.rect(paddle.positionX, paddle.positionY, paddle.width, paddle.height);
-    // canvasContext.fillStyle = paddle.color;
-    // canvasContext.fill();
     canvasContext.closePath();
 };
 
 function drawBall(ball) {
     canvasContext.beginPath();
-    drawRotatedImage(ball1_img, ball.x, ball.y, rotateImg_counter);
+    let ballImg;
+    if (ball.id == 'ball1') {
+        ballImg = ball1_img;
+    } else if (ball.id == 'ball2') {
+        ballImg = ball2_img;
+    }
+    drawRotatedImage(ballImg, ball.x, ball.y, rotateImg_counter);
     canvasContext.closePath();
 };
 

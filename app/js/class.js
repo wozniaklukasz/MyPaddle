@@ -1,11 +1,11 @@
 class Ball {
-    constructor(x, y, dx, dy, radius, color) {
+    constructor(x, y, dx, dy, radius, id) {
         this.x = x;
         this.y = y;
         this.dx = dx;
         this.dy = dy;
         this.radius = radius;
-        this.color = color;
+        this.id = id;
     };
 };
 class Paddle {

@@ -1,7 +1,8 @@
+var gameSpeed = 15;
 var canvas = document.getElementById('myCanvas');
 var canvasContext = canvas.getContext('2d');
-var ball1 = new Ball((canvas.width - 5) / 2, (canvas.height - 5) / 2, 2, 2, 10, '#E84A5F');
-var ball2 = new Ball((canvas.width - 5) / 2, (canvas.height - 5) / 2, 3, 1, 10, '#E8A45F');
+var ball1 = new Ball((canvas.width - 5) / 2, (canvas.height - 5) / 2, (Math.random() < 0.5 ? -1 : 1), (Math.random() < 0.5 ? -1 : 1), 10, 'ball1');
+var ball2 = new Ball((canvas.width - 5) / 2, (canvas.height - 5) / 2, (Math.random() < 0.5 ? -1 : 1), (Math.random() < 0.5 ? -1 : 1), 10, 'ball2');
 var paddle1 = new Paddle(150, 5, 0, 7, '#CBE86B');
 var paddle2 = new Paddle(150, 5, (canvas.height - 5), 7, '#CB8E6B');
 var player1 = new Player(3);

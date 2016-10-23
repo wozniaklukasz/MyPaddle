@@ -8,6 +8,6 @@ window.onload = function() {
 //});
 
 function init() {
-    setInterval(play, 15);
+    setInterval(play, gameSpeed);
     setText();
 };

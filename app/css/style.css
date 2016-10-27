@@ -48,17 +48,25 @@ h2 {
 .keyboard-button {
   padding: 5px;
   background: white;
-  color: #2a363b;
+  color: #2A363B;
   border-radius: 3px;
   display: inline-block;
   margin: 5px;
 }
 footer {
   padding: 20px;
-  color: #2a363b;
+  color: #2A363B;
   border-top: 1px solid #2A363B;
   margin-top: 20px;
   font-size: 12px;
+}
+footer a:visited,
+footer a:focus {
+  color: #E84A5F;
+  text-decoration: none;
+}
+footer a:hover {
+  color: white;
 }
 .canvas-wr {
   position: relative;
@@ -79,4 +87,10 @@ footer {
   background: #E84A5F;
   font-size: 32px;
   color: white;
+}
+.player-arena img {
+  display: none;
+}
+.player-arena img.front {
+  display: inline;
 }

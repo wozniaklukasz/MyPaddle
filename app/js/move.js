@@ -71,6 +71,6 @@ function playerLoseLive(player) {
     player.liveLosed = true;
     setTimeout(function() {
         player.liveLosed = false;
-    }, 100);
+    }, 1000);
     setPlayerLives();
 }

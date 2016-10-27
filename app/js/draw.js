@@ -9,7 +9,55 @@ function play() {
     moveBall(ball1);
     moveBall(ball2);
     movePaddle();
+    playersAnimation();
 };
+
+function playersAnimation() {
+    if (player1.liveLosed) {
+        (jQuery)('#p1-front').css('display', 'none');
+        (jQuery)('#p1-right').css('display', 'none');
+        (jQuery)('#p1-left').css('display', 'none');
+        (jQuery)('#p1-damaged').css('display', 'inline');
+    } else {
+        (jQuery)('#p1-damaged').css('display', 'none');
+        if (paddle1_rightKeyPressed) {
+            (jQuery)('#p1-front').css('display', 'none');
+            (jQuery)('#p1-right').css('display', 'inline');
+            (jQuery)('#p1-left').css('display', 'none');
+
+        } else if (paddle1_leftKeyPressed) {
+            (jQuery)('#p1-front').css('display', 'none');
+            (jQuery)('#p1-right').css('display', 'none');
+            (jQuery)('#p1-left').css('display', 'inline');
+        } else {
+            (jQuery)('#p1-front').css('display', 'inline');
+            (jQuery)('#p1-right').css('display', 'none');
+            (jQuery)('#p1-left').css('display', 'none');
+        }
+    }
+    if (player2.liveLosed) {
+        (jQuery)('#p2-front').css('display', 'none');
+        (jQuery)('#p2-right').css('display', 'none');
+        (jQuery)('#p2-left').css('display', 'none');
+        (jQuery)('#p2-damaged').css('display', 'inline');
+    } else {
+        (jQuery)('#p2-damaged').css('display', 'none');
+        if (paddle2_rightKeyPressed) {
+            (jQuery)('#p2-front').css('display', 'none');
+            (jQuery)('#p2-right').css('display', 'inline');
+            (jQuery)('#p2-left').css('display', 'none');
+
+        } else if (paddle2_leftKeyPressed) {
+            (jQuery)('#p2-front').css('display', 'none');
+            (jQuery)('#p2-right').css('display', 'none');
+            (jQuery)('#p2-left').css('display', 'inline');
+        } else {
+            (jQuery)('#p2-front').css('display', 'inline');
+            (jQuery)('#p2-right').css('display', 'none');
+            (jQuery)('#p2-left').css('display', 'none');
+        }
+    }
+}
 
 function drawPaddle(paddle) {
     canvasContext.beginPath();

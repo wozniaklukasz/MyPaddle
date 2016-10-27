@@ -1,5 +1,6 @@
 @color-red: #E84A5F;
 @color-blue: #0095DD;
+@color-grey: #2A363B;
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 * {
 	padding: 0;
@@ -32,7 +33,7 @@ span {
 }
 
 canvas {
-	background: #2A363B;
+	background: @color-grey;
 	display: block;
 	margin: 0 auto;
 }
@@ -46,7 +47,7 @@ h1 {
 	text-align: center;
 	font-size: 55px;
 	color: white;
-	border-bottom: 1px solid #2A363B;
+	border-bottom: 1px solid @color-grey;
 	padding: 20px;
 	-webkit-text-stroke: 1px white;
 	text-shadow: 1px 1px 0 @color-blue, 2px 2px 0 @color-blue, 3px 3px 0 @color-blue, 3px 4px 0 @color-blue, 3px 5px 0 @color-blue;
@@ -59,7 +60,7 @@ h2 {
 .keyboard-button {
 	padding: 5px;
 	background: white;
-	color: #2a363b;
+	color: @color-grey;
 	border-radius: 3px;
 	display: inline-block;
 	margin: 5px;
@@ -67,10 +68,21 @@ h2 {
 
 footer {
 	padding: 20px;
-	color: #2a363b;
-	border-top: 1px solid #2A363B;
+	color: @color-grey;
+	border-top: 1px solid @color-grey;
 	margin-top: 20px;
 	font-size: 12px;
+
+	a {
+		&:visited,&:focus {
+			color: @color-red;
+			text-decoration: none;
+		}
+		&:hover {
+	color: white;
+			
+		}
+	}
 }
 
 .canvas-wr {
@@ -96,4 +108,13 @@ footer {
 
 .canvas-graphics {
 	// display: none;
+}
+
+.player-arena {
+	img {
+		display: none;
+	}
+	img.front {
+		display: inline;
+	}
 }

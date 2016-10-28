@@ -34,7 +34,7 @@ class Brick {
     };
 };
 class BrickPositionDef {
-    constructor(rows, columns, x, y, marginTop, marginLeft) {
+    constructor(rows, columns, x, y, marginTop, marginLeft, lives) {
         this.rows = rows;
         this.columns = columns;
         this.x = x;
@@ -42,5 +42,6 @@ class BrickPositionDef {
         this.marginTop = marginTop;
         this.marginLeft = marginLeft;
         this.created = false;
+        this.lives = lives;
     }
 };

@@ -38,6 +38,11 @@ function moveBall(ball) {
 };
 
 function collisionDetection(ball) {
+    collisionDetectionBricks(bricks, brickPositionDef, ball);
+    collisionDetectionBricks(bricks2, brickPositionDef2, ball);
+};
+
+function collisionDetectionBricks(bricks, brickPositionDef, ball) {
     for (c = 0; c < brickPositionDef.columns; c++) {
         for (r = 0; r < brickPositionDef.rows; r++) {
             let brick = bricks[c][r];

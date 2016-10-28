@@ -1,7 +1,8 @@
 function play() {
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
     drawWall();
-    drawBricks(brickPositionDef);
+    drawBricks(bricks, brickPositionDef);
+    drawBricks(bricks2, brickPositionDef2);
     drawBall(ball1);
     drawBall(ball2);
     drawPaddle(paddle1);
@@ -77,14 +78,16 @@ function drawBall(ball) {
     canvasContext.closePath();
 };
 
-function drawBricks(brickPositionDef) {
+function drawBricks(bricks, brickPositionDef) {
     if (!brickPositionDef.created) {
-        createBricks(brickPositionDef);
+        createBricks(bricks, brickPositionDef);
     };
     for (c = 0; c < brickPositionDef.columns; c++) {
         for (r = 0; r < brickPositionDef.rows; r++) {
             canvasContext.beginPath();
-            if (bricks[c][r].lives > 4) {
+            if (bricks[c][r].lives > 6) {
+                canvasContext.drawImage(brickInfinity_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
+            } else if (bricks[c][r].lives > 4) {
                 canvasContext.drawImage(brick3live_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
             } else if (bricks[c][r].lives > 2) {
                 canvasContext.drawImage(brick2live_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);

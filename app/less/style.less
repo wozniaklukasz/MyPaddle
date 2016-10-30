@@ -1,23 +1,33 @@
 @color-red: #E84A5F;
 @color-blue: #0095DD;
-@color-grey: #2A363B;
-@import url('https://fonts.googleapis.com/css?family=Rubik');
+@color-grey: #7797a5;
+@import url('https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900');
 * {
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
 
 body {
-	background: #556270;
+	background: url('../images/bg.jpg') fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
 	color: #E9EFF2;
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Orbitron', sans-serif;
+	font-weight: 700;
 }
 
 header,
 section,
 footer {
-	width: 640px;
+	width: 700px;
 	margin: 0 auto;
+	background: rgba(0, 0, 0, 0.75);;
+	padding: 0 20px;
+}
+
+footer {
+	padding-bottom: 20px;
 }
 
 .btn {
@@ -33,7 +43,7 @@ span {
 }
 
 canvas {
-	background: @color-grey;
+	background: rgba(0, 0, 0, .60);
 	display: block;
 	margin: 0 auto;
 }
@@ -67,10 +77,9 @@ h2 {
 }
 
 footer {
-	padding: 20px;
 	color: @color-grey;
 	border-top: 1px solid @color-grey;
-	margin-top: 20px;
+	padding-top: 20px;
 	font-size: 12px;
 
 	a {
@@ -107,7 +116,7 @@ footer {
 }
 
 .canvas-graphics {
-	// display: none;
+	 display: none;
 }
 
 .player-arena {

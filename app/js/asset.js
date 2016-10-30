@@ -1,4 +1,4 @@
-var gameSpeed = 1000 / 60;
+var gameSpeed = 10;
 var canvas = document.getElementById('myCanvas');
 var canvasContext = canvas.getContext('2d');
 var ball1 = new Ball((canvas.width - 5) / 2, 50, (Math.random() < 0.5 ? -1 : 1), (Math.random() < 0.5 ? -1 : 1), 10, 'ball1');

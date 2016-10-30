@@ -1,18 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import url('https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900');
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 body {
-  background: #556270;
+  background: url('../images/bg.jpg') fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #E9EFF2;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
 }
 header,
 section,
 footer {
-  width: 640px;
+  width: 700px;
   margin: 0 auto;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 0 20px;
+}
+footer {
+  padding-bottom: 20px;
 }
 .btn {
   padding: 10px 20px;
@@ -25,7 +34,7 @@ span {
   font-weight: 700;
 }
 canvas {
-  background: #2A363B;
+  background: rgba(0, 0, 0, 0.6);
   display: block;
   margin: 0 auto;
 }
@@ -37,7 +46,7 @@ h1 {
   text-align: center;
   font-size: 55px;
   color: white;
-  border-bottom: 1px solid #2A363B;
+  border-bottom: 1px solid #7797a5;
   padding: 20px;
   -webkit-text-stroke: 1px white;
   text-shadow: 1px 1px 0 #0095DD, 2px 2px 0 #0095DD, 3px 3px 0 #0095DD, 3px 4px 0 #0095DD, 3px 5px 0 #0095DD;
@@ -48,16 +57,15 @@ h2 {
 .keyboard-button {
   padding: 5px;
   background: white;
-  color: #2A363B;
+  color: #7797a5;
   border-radius: 3px;
   display: inline-block;
   margin: 5px;
 }
 footer {
-  padding: 20px;
-  color: #2A363B;
-  border-top: 1px solid #2A363B;
-  margin-top: 20px;
+  color: #7797a5;
+  border-top: 1px solid #7797a5;
+  padding-top: 20px;
   font-size: 12px;
 }
 footer a:visited,
@@ -87,6 +95,9 @@ footer a:hover {
   background: #E84A5F;
   font-size: 32px;
   color: white;
+}
+.canvas-graphics {
+  display: none;
 }
 .player-arena img {
   display: none;

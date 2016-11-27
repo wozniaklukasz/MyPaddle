@@ -40,6 +40,45 @@ function moveBall(ball) {
 function collisionDetection(ball) {
     collisionDetectionBricks(bricks, brickPositionDef, ball);
     collisionDetectionBricks(bricks2, brickPositionDef2, ball);
+    // collisionDetectionBalls();
+};
+
+function collisionDetectionBalls() {
+    /*TODO!*/
+    let distance = Math.sqrt(Math.pow((ball2.x - ball1.x), 2) + Math.pow((ball2.y - ball1.y), 2));
+    if (distance < (ball1.radius + ball2.radius)) {
+        if (ball1.dx > 0 && ball1.dy > 0) {
+            if (ball2.dx < 0 && ball2.dy < 0) {
+                ball1.dx = -ball1.dx;
+                ball1.dy = -ball1.dy;
+                ball2.dx = -ball2.dx;
+                ball2.dy = -ball2.dy;
+            }
+            if (ball2.dx < 0 && ball2.dy > 0) {
+                ball1.dx = -ball1.dx;
+                ball2.dx = -ball2.dx;
+            }
+            if (ball2.dx > 0 && ball2.dy > 0) {
+                ball1.dy = -ball1.dy;
+                ball2.dy = -ball2.dy;
+            }
+        } else if (ball1.dx < 0 && ball1.dy < 0) {
+            if (ball2.dx > 0 && ball2.dy > 0) {
+                ball1.dx = -ball1.dx;
+                ball1.dy = -ball1.dy;
+                ball2.dx = -ball2.dx;
+                ball2.dy = -ball2.dy;
+            }
+            if (ball2.dx > 0 && ball2.dy < 0) {
+                ball1.dx = -ball1.dx;
+                ball2.dx = -ball2.dx;
+            }
+            if (ball2.dx < 0 && ball2.dy < 0) {
+                ball1.dy = -ball1.dy;
+                ball2.dy = -ball2.dy;
+            }
+        }
+    }
 };
 
 function collisionDetectionBricks(bricks, brickPositionDef, ball) {

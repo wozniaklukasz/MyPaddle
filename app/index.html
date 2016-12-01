@@ -11,17 +11,48 @@
 
 <body>
     <header>
-        <h1>MyPaddle - beta version.</h1>
+        <h1>MyPaddle</h1>
     </header>
-    <section>
+    <section id="intro">
+      <div class="clr"></div>
+      <span class="btn play-btn">PLAY!</span>
+      <h2>How to play?</h2>
+      <p>Use <span class="keyboard-button">&#8592;</span> and <span class="keyboard-button">&#8594;</span> to move the paddle as a Player 1 (bottom side).</p>
+      <p>Use <span class="keyboard-button">A</span> and <span class="keyboard-button">D</span> to move the paddle as a Player 2 (top side).</p>
+      <h2>Game effects</h2>
+      <div class="effects">
+        <img id="brick-effect-1" src="images/brick/brick-effect-1.png" width="40" height="40">
+        <span>dsdsds</span>
+      </div>
+      <div class="effects">
+        <img id="brick-effect-2" src="images/brick/brick-effect-2.png" width="40" height="40">
+        <span>dsdsds</span>
+      </div>
+      <div class="effects">
+        <img id="brick-effect-3" src="images/brick/brick-effect-3.png" width="40" height="40">
+        <span>dsdsds</span>
+      </div>
+      <div class="effects">
+        <img id="brick-effect-4" src="images/brick/brick-effect-4.png" width="40" height="40">
+        <span>dsdsds</span>
+      </div>
+      <div class="clr"></div>
+    </section>
+    <section id="game">
         <div class="player-arena">
             <h3>Player 1</h3>
             <p>Lives: <span id="player1-lives"></span></p>
         </div>
         <div class="canvas-wr">
-            <div id="game-over">
+            <div class="canvas-mask" id="game-over">
               <span>Player x win</span>
-              <span id="play-btn" class="btn">PLAY AGAIN!</span>
+              <span class="btn play-btn">PLAY AGAIN!</span>
+            </div>
+            <div class="canvas-mask" id="steps">
+              <span id="step3">3</span>
+              <span id="step2">2</span>
+              <span id="step1">1</span>
+              <span id="stepgo">Go!</span>
             </div>
             <div class="player-arena">
                 <img class="front" id="p1-front" src="images/player/p1_front.png" width="60" height="90">
@@ -42,24 +73,14 @@
             <p>Lives: <span id="player2-lives"></span></p>
         </div>
     </section>
-    <section>
-        <h2>How to play?</h2>
-        <p>Use <span class="keyboard-button">&#8592;</span> and <span class="keyboard-button">&#8594;</span> to move the paddle as a Player 1.</p>
-        <p>Use <span class="keyboard-button">A</span> and <span class="keyboard-button">D</span> to move the paddle as a Player 2.</p>
-    </section>
     <section class="canvas-graphics">
         <img id="brick-1-live" src="images/brick/brick-1-live.png" width="40" height="40">
         <img id="brick-2-live" src="images/brick/brick-2-live.png" width="40" height="40">
         <img id="brick-3-live" src="images/brick/brick-3-live.png" width="40" height="40">
-        <img id="brick-effect-1" src="images/brick/brick-effect-1.png" width="40" height="40">
-        <img id="brick-effect-2" src="images/brick/brick-effect-2.png" width="40" height="40">
-        <img id="brick-effect-3" src="images/brick/brick-effect-3.png" width="40" height="40">
-        <img id="brick-effect-4" src="images/brick/brick-effect-4.png" width="40" height="40">
         <img id="brick-infinity" src="images/brick/brick-infinity.png" width="40" height="40">
         <img id="ball-1" src="images/ball/ball-1.png" width="20" height="20">
         <img id="ball-2" src="images/ball/ball-2.png" width="20" height="20">
         <img id="paddle-img" src="images/paddle.png" width="150" height="5">
-
     </section>
     <footer>
         <p><a href="https://github.com/wozniaklukasz" target="_blank">Łukasz Woźniak</a> &copy; 2016 </p>

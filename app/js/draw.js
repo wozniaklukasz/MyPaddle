@@ -85,14 +85,24 @@ function drawBricks(bricks, brickPositionDef) {
     for (c = 0; c < brickPositionDef.columns; c++) {
         for (r = 0; r < brickPositionDef.rows; r++) {
             canvasContext.beginPath();
-            if (bricks[c][r].lives > 6) {
+            if (bricks[c][r].lives > 7) {
                 canvasContext.drawImage(brickInfinity_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
-            } else if (bricks[c][r].lives > 4) {
+            } else if (bricks[c][r].lives > 5) {
                 canvasContext.drawImage(brick3live_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
-            } else if (bricks[c][r].lives > 2) {
+            } else if (bricks[c][r].lives > 3) {
                 canvasContext.drawImage(brick2live_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
-            } else if (bricks[c][r].lives > 0) {
+            } else if (bricks[c][r].lives > 1) {
                 canvasContext.drawImage(brick1live_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
+            } else if (bricks[c][r].lives == 1) {
+                if (bricks[c][r].effect == 1) {
+                    canvasContext.drawImage(brickEffect1_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
+                } else if (bricks[c][r].effect == 2) {
+                    canvasContext.drawImage(brickEffect2_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
+                } else if (bricks[c][r].effect == 3) {
+                    canvasContext.drawImage(brickEffect3_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
+                } else if (bricks[c][r].effect == 4) {
+                    canvasContext.drawImage(brickEffect4_img, bricks[c][r].x, bricks[c][r].y, bricks[c][r].width, bricks[c][r].height);
+                }
             }
             canvasContext.closePath();
         }

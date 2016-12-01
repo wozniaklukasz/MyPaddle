@@ -11,6 +11,8 @@ var bricks = [];
 var bricks2 = [];
 var brickPositionDef = new BrickPositionDef(2, 4, 150, 180, 100, 100, 6);
 var brickPositionDef2 = new BrickPositionDef(3, 3, 200, 130, 100, 100, 1500);
+var greenEffect = 0;
+
 
 function createBricks(bricks, brickPositionDef) {
     var x = brickPositionDef.x;
@@ -18,7 +20,8 @@ function createBricks(bricks, brickPositionDef) {
         bricks[c] = [];
         var y = brickPositionDef.y;
         for (r = 0; r < brickPositionDef.rows; r++) {
-            bricks[c][r] = new Brick(x, y, 40, 40, brickPositionDef.lives);
+            bricks[c][r] = new Brick(x, y, 40, 40, brickPositionDef.lives, (Math.floor(Math.random() * 4) + 1));
+            // bricks[c][r] = new Brick(x, y, 40, 40, 1-zycie, 1-4 - efekt);
             y += brickPositionDef.marginTop;
         }
         x += brickPositionDef.marginLeft;
@@ -37,12 +40,57 @@ function setPlayerLives() {
 
 function brickDamage(brick) {
     brick.lives--;
-    if (brick.lives == 0) {}
+    if (brick.lives == 0) {
+        effectTrigger(brick.effect);
+    }
+};
+
+function effectTrigger(effect) {
+    switch (effect) {
+        case 1:
+            /*blue*/
+            if (paddle1.speed > 3) {
+                paddle1.speed -= 3;
+                paddle2.speed -= 3;
+            }
+            break;
+        case 2:
+            /*green*/
+            greenEffect++;
+            switch (greenEffect) {
+                case 1:
+                    ball1.dy *= 2;
+                    ball1.dx *= 2;
+                    break;
+                case 2:
+                    ball2.dx *= 2;
+                    ball2.dy *= 2;
+                    break;
+            }
+            break;
+        case 3:
+            /*red*/
+            if (paddle1.width > 40) {
+                paddle1.width -= 25;
+                paddle2.width -= 25;
+            }
+            break;
+        case 4:
+            /*yellow - red, green or blue effect*/
+            effectTrigger((Math.floor(Math.random() * 3) + 1));
+            break;
+        default:
+            break;
+    };
 };
 /* Images */
 var brick1live_img = document.getElementById('brick-1-live');
 var brick2live_img = document.getElementById('brick-2-live');
 var brick3live_img = document.getElementById('brick-3-live');
+var brickEffect1_img = document.getElementById('brick-effect-1');
+var brickEffect2_img = document.getElementById('brick-effect-2');
+var brickEffect3_img = document.getElementById('brick-effect-3');
+var brickEffect4_img = document.getElementById('brick-effect-4');
 var brickInfinity_img = document.getElementById('brick-infinity');
 var ball1_img = document.getElementById('ball-1');
 var ball2_img = document.getElementById('ball-2');

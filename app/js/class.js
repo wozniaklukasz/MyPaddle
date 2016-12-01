@@ -25,12 +25,13 @@ class Player {
     };
 };
 class Brick {
-    constructor(x, y, width, height, lives) {
+    constructor(x, y, width, height, lives, effect) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.lives = lives;
+        this.effect = effect;
     };
 };
 class BrickPositionDef {

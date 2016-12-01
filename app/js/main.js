@@ -1,13 +1,19 @@
 window.onload = function() {
-    init();
+    //init();
 };
 
-//(jQuery)('#play-btn').on('click', function () {
-//	$('#play-btn-wr').css('display', 'none');
-//	init();	
-//});
+(jQuery)('#play-btn').on('click', function () {
+	$('#game-over').css('display', 'none');
+	init();
+});
 
 function init() {
-    setInterval(play, gameSpeed);
+    setAssets();
+    gameInterval = setInterval(play, gameSpeed);
     setText();
 };
+
+function gameOver(player) {
+  clearInterval(gameInterval);
+  $('#game-over').css('display', 'flex');
+}

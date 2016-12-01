@@ -1,17 +1,36 @@
-var gameSpeed = 10;
-var canvas = document.getElementById('myCanvas');
-var canvasContext = canvas.getContext('2d');
-var ball1 = new Ball((canvas.width - 5) / 2, 50, (Math.random() < 0.5 ? -1 : 1), (Math.random() < 0.5 ? -1 : 1), 10, 'ball1');
-var ball2 = new Ball((canvas.width - 5) / 2, (canvas.height - 50), (Math.random() < 0.5 ? -1 : 1), (Math.random() < 0.5 ? -1 : 1), 10, 'ball2');
-var paddle1 = new Paddle(150, 5, 0, 7, '#CBE86B');
-var paddle2 = new Paddle(150, 5, (canvas.height - 5), 7, '#CB8E6B');
-var player1 = new Player(3);
-var player2 = new Player(3);
-var bricks = [];
-var bricks2 = [];
-var brickPositionDef = new BrickPositionDef(2, 4, 150, 180, 100, 100, 6);
-var brickPositionDef2 = new BrickPositionDef(3, 3, 200, 130, 100, 100, 1500);
-var greenEffect = 0;
+var gameSpeed,
+    gameInterval,
+    canvas,
+    canvasContext,
+    ball1,
+    ball2,
+    paddle1,
+    paddle2,
+    player1,
+    player2,
+    bricks,
+    bricks2,
+    brickPositionDef,
+    brickPositionDef2,
+    greenEffect;
+
+function setAssets() {
+    gameSpeed = 10;
+    gameInterval = null;
+    canvas = document.getElementById('myCanvas');
+    canvasContext = canvas.getContext('2d');
+    ball1 = new Ball((canvas.width - 5) / 2, 50, (Math.random() < 0.5 ? -1 : 1), (Math.random() < 0.5 ? -1 : 1), 10, 'ball1');
+    ball2 = new Ball((canvas.width - 5) / 2, (canvas.height - 50), (Math.random() < 0.5 ? -1 : 1), (Math.random() < 0.5 ? -1 : 1), 10, 'ball2');
+    paddle1 = new Paddle(150, 5, 0, 7, '#CBE86B');
+    paddle2 = new Paddle(150, 5, (canvas.height - 5), 7, '#CB8E6B');
+    player1 = new Player(10);
+    player2 = new Player(10);
+    bricks = [];
+    bricks2 = [];
+    brickPositionDef = new BrickPositionDef(2, 4, 150, 180, 100, 100, 6);
+    brickPositionDef2 = new BrickPositionDef(3, 3, 200, 130, 100, 100, 1500);
+    greenEffect = 0;
+}
 
 
 function createBricks(bricks, brickPositionDef) {
@@ -36,6 +55,11 @@ function setText() {
 function setPlayerLives() {
     document.getElementById('player1-lives').innerHTML = player1.lives;
     document.getElementById('player2-lives').innerHTML = player2.lives;
+    if (player1.lives < 1) {
+        gameOver(player1);
+    } else if (player2.lives < 1) {
+        gameOver(player2);
+    }
 };
 
 function brickDamage(brick) {

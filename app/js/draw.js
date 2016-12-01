@@ -1,4 +1,4 @@
-function play() {
+function play() {    
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
     drawWall();
     drawBricks(bricks, brickPositionDef);

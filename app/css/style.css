@@ -79,8 +79,8 @@ footer a:hover {
 .canvas-wr {
   position: relative;
 }
-.canvas-wr #play-btn-wr {
-  background: rgba(0, 0, 0, 0.5);
+.canvas-wr #game-over {
+  background: rgba(0, 0, 0, 0.9);
   margin: auto;
   position: absolute;
   top: 0;
@@ -90,11 +90,13 @@ footer a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.canvas-wr #play-btn-wr #play-btn {
-  background: #E84A5F;
+  flex-direction: column;
   font-size: 32px;
+}
+.canvas-wr #game-over #play-btn {
+  background: #E84A5F;
   color: white;
+  margin-top: 40px;
 }
 .canvas-graphics {
   display: none;

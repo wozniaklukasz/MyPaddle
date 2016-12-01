@@ -89,15 +89,15 @@ footer {
 		}
 		&:hover {
 	color: white;
-			
+
 		}
 	}
 }
 
 .canvas-wr {
 	position: relative;
-	#play-btn-wr {
-		background: rgba(0, 0, 0, .5);
+	#game-over {
+		background: rgba(0, 0, 0, .9);
 		margin: auto;
 		position: absolute;
 		top: 0;
@@ -107,10 +107,12 @@ footer {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		flex-direction: column;font-size: 32px;
 		#play-btn {
 			background: @color-red;
-			font-size: 32px;
+
 			color: white;
+			margin-top: 40px;
 		}
 	}
 }

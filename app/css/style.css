@@ -110,9 +110,6 @@ section#game {
   flex-direction: column;
   font-size: 32px;
 }
-.canvas-wr #steps span {
-  display: none;
-}
 .play-btn {
   background: #E84A5F;
   color: white;

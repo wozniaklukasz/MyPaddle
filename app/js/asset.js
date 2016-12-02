@@ -23,8 +23,8 @@ function setAssets() {
     ball2 = new Ball((canvas.width - 5) / 2, (canvas.height - 50), (Math.random() < 0.5 ? -1 : 1), (Math.random() < 0.5 ? -1 : 1), 10, 'ball2');
     paddle1 = new Paddle(150, 5, 0, 7, '#CBE86B');
     paddle2 = new Paddle(150, 5, (canvas.height - 5), 7, '#CB8E6B');
-    player1 = new Player(10);
-    player2 = new Player(10);
+    player1 = new Player(1);
+    player2 = new Player(1);
     bricks = [];
     bricks2 = [];
     brickPositionDef = new BrickPositionDef(2, 4, 150, 180, 100, 100, 6);
@@ -56,9 +56,9 @@ function setPlayerLives() {
     document.getElementById('player1-lives').innerHTML = player1.lives;
     document.getElementById('player2-lives').innerHTML = player2.lives;
     if (player1.lives < 1) {
-        gameOver(player1);
+        gameOver(2);
     } else if (player2.lives < 1) {
-        gameOver(player2);
+        gameOver(1);
     }
 };
 

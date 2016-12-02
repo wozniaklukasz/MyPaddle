@@ -8,9 +8,9 @@ window.onload = function() {
     $('footer').hide('slow');
     $('#intro').hide('slow');
     $('#game').show('slow');
-    $('#steps').show('slow');
+    $('#steps').css('display', 'flex');
 
-    startGame(10, $('#step3'), false);
+    startGame(3, $('#step'), false);
 
 
 });
@@ -23,14 +23,16 @@ function init() {
 
 function gameOver(player) {
     clearInterval(gameInterval);
+    $('#player-win').html(player);
     $('header').show('slow');
     $('footer').show('slow');
     $('#game-over').css('display', 'flex');
 }
 
 function startGame(duration, display, gameStarted) {
+    display.text(duration);
     setInterval(function() {
-        if (duration > -1) {
+        if (duration > 0) {
             display.text(duration--);
         } else if (!gameStarted){
             gameStarted = true;

@@ -12,22 +12,31 @@ body {
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
 }
-header,
-section,
-footer {
-  width: 700px;
-  margin: 0 auto;
+header .container,
+section .container,
+footer .container {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  width: 1200px;
   background: rgba(0, 0, 0, 0.75);
-  padding: 0 20px;
+  padding: 20px;
 }
-footer {
-  padding-bottom: 20px;
+header .container:before,
+section .container:before,
+footer .container:before,
+header .container:after,
+section .container:after,
+footer .container:after {
+  display: table;
+  content: " ";
 }
 .btn {
   padding: 10px 20px;
   border-radius: 3px;
   border-bottom: 3px solid;
   cursor: pointer;
+  font-size: 55px;
 }
 span {
   color: #FECEA8;
@@ -64,9 +73,10 @@ h2 {
 }
 footer {
   color: #7797a5;
-  border-top: 1px solid #7797a5;
-  padding-top: 20px;
   font-size: 12px;
+}
+footer .container {
+  border-top: 1px solid #7797a5;
 }
 footer a:visited,
 footer a:focus {
@@ -128,6 +138,7 @@ section#game {
 .player-arena img.front {
   display: inline;
 }
-.clr {
-  display: inline-block;
+.btn-center {
+  margin: 0 auto;
+  display: table;
 }

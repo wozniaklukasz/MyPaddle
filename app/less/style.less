@@ -20,14 +20,18 @@ body {
 header,
 section,
 footer {
-	width: 700px;
-	margin: 0 auto;
-	background: rgba(0, 0, 0, 0.75);;
-	padding: 0 20px;
-}
-
-footer {
-	padding-bottom: 20px;
+	.container {
+		position: relative;
+		margin-right: auto;
+    margin-left: auto;
+		width: 1200px;
+		background: rgba(0, 0, 0, 0.75);
+		padding: 20px;
+		&:before,&:after {
+			display: table;
+    content: " ";
+		}
+	}
 }
 
 .btn {
@@ -35,6 +39,7 @@ footer {
 	border-radius: 3px;
 	border-bottom: 3px solid;
 	cursor: pointer;
+	font-size: 55px;
 }
 
 span {
@@ -78,10 +83,13 @@ h2 {
 
 footer {
 	color: @color-grey;
-	border-top: 1px solid @color-grey;
-	padding-top: 20px;
-	font-size: 12px;
 
+
+
+	font-size: 12px;
+.container {
+	border-top: 1px solid @color-grey;
+}
 	a {
 		&:visited,&:focus {
 			color: @color-red;
@@ -154,6 +162,7 @@ section#game {
 	}
 }
 
-.clr {
-	display: inline-block;
+.btn-center {
+	margin:0 auto;
+	display: table;
 }

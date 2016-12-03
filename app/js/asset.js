@@ -28,7 +28,7 @@ function setAssets() {
     bricks = [];
     bricks2 = [];
     brickPositionDef = new BrickPositionDef(2, 4, 150, 180, 100, 100, 6);
-    brickPositionDef2 = new BrickPositionDef(3, 3, 200, 130, 100, 100, 1500);
+    brickPositionDef2 = new BrickPositionDef(1, 3, 200, 230, 100, 100, 1500);
     //greenEffect = 0;
 }
 

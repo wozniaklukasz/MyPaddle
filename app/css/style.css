@@ -10,11 +10,15 @@ body {
   background-repeat: no-repeat;
   color: #E9EFF2;
   font-family: 'Orbitron', sans-serif;
+  font-weight: 300;
+}
+h1,
+h2 {
   font-weight: 700;
 }
+footer .container,
 header .container,
-section .container,
-footer .container {
+section .container {
   position: relative;
   margin-right: auto;
   margin-left: auto;
@@ -22,12 +26,12 @@ footer .container {
   background: rgba(0, 0, 0, 0.75);
   padding: 20px;
 }
-header .container:before,
-section .container:before,
-footer .container:before,
+footer .container:after,
 header .container:after,
 section .container:after,
-footer .container:after {
+footer .container:before,
+header .container:before,
+section .container:before {
   display: table;
   content: " ";
 }
@@ -37,19 +41,42 @@ footer .container:after {
   border-bottom: 3px solid;
   cursor: pointer;
   font-size: 55px;
+  font-weight: 700;
 }
 span {
   color: #FECEA8;
-  font-weight: 700;
 }
 canvas {
   background: rgba(0, 0, 0, 0.6);
   display: block;
-  margin: 0 auto;
+  float: left;
+}
+.canvas-nextto {
+  width: 260px;
+  height: 480px;
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+.canvas-nextto.canvas-right {
+  align-items: center;
+}
+.canvas-nextto.canvas-left {
+  flex-direction: column;
 }
 .player-arena {
   text-align: center;
   padding: 20px;
+}
+.player-avatar {
+  text-align: center;
+}
+.player-avatar img {
+  margin: 20px 0;
+  display: none;
+}
+.player-avatar img.front {
+  display: inline;
 }
 h1 {
   text-align: center;
@@ -78,8 +105,8 @@ footer {
 footer .container {
   border-top: 1px solid #7797a5;
 }
-footer a:visited,
-footer a:focus {
+footer a:focus,
+footer a:visited {
   color: #E84A5F;
   text-decoration: none;
 }
@@ -96,6 +123,7 @@ section#intro .effects span {
 }
 section#intro .effects span {
   line-height: 40px;
+  color: #E9EFF2;
 }
 section#intro .effects img {
   margin-right: 20px;
@@ -123,22 +151,35 @@ section#game {
 .canvas-wr #steps #step {
   color: #E84A5F;
   font-size: 72px;
+  font-weight: 700;
 }
 .play-btn {
   background: #E84A5F;
   color: white;
   margin-top: 40px;
 }
+.play-btn:hover {
+  background: #ce4658;
+}
 .canvas-graphics {
   display: none;
-}
-.player-arena img {
-  display: none;
-}
-.player-arena img.front {
-  display: inline;
 }
 .btn-center {
   margin: 0 auto;
   display: table;
+}
+.levitate {
+  -webkit-animation: levitate-def 7s infinite;
+  -moz-animation: levitate-def 7s infinite;
+}
+@-webkit-keyframes levitate-def {
+  0% {
+    -webkit-transform: translateY(-30px);
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+  }
+  100% {
+    -webkit-transform: translateY(-30px);
+  }
 }

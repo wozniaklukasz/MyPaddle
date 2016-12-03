@@ -11,8 +11,8 @@ var gameSpeed,
     bricks,
     bricks2,
     brickPositionDef,
-    brickPositionDef2,
-    greenEffect;
+    brickPositionDef2;
+    //greenEffect;
 
 function setAssets() {
     gameSpeed = 10;
@@ -23,13 +23,13 @@ function setAssets() {
     ball2 = new Ball((canvas.width - 5) / 2, (canvas.height - 50), (Math.random() < 0.5 ? -1 : 1), (Math.random() < 0.5 ? -1 : 1), 10, 'ball2');
     paddle1 = new Paddle(150, 5, 0, 7, '#CBE86B');
     paddle2 = new Paddle(150, 5, (canvas.height - 5), 7, '#CB8E6B');
-    player1 = new Player(1);
-    player2 = new Player(1);
+    player1 = new Player(7);
+    player2 = new Player(7);
     bricks = [];
     bricks2 = [];
     brickPositionDef = new BrickPositionDef(2, 4, 150, 180, 100, 100, 6);
     brickPositionDef2 = new BrickPositionDef(3, 3, 200, 130, 100, 100, 1500);
-    greenEffect = 0;
+    //greenEffect = 0;
 }
 
 
@@ -80,17 +80,20 @@ function effectTrigger(effect) {
             break;
         case 2:
             /*green*/
-            greenEffect++;
-            switch (greenEffect) {
-                case 1:
-                    ball1.dy *= 2;
-                    ball1.dx *= 2;
-                    break;
-                case 2:
-                    ball2.dx *= 2;
-                    ball2.dy *= 2;
-                    break;
-            }
+            let tmp = player1.lives;
+            player1.lives = player2.lives;
+            player2.lives = tmp;
+            // greenEffect++;
+            // switch (greenEffect) {
+            //     case 1:
+            //         ball1.dy *= 2;
+            //         ball1.dx *= 2;
+            //         break;
+            //     case 2:
+            //         ball2.dx *= 2;
+            //         ball2.dy *= 2;
+            //         break;
+            // }
             break;
         case 3:
             /*red*/

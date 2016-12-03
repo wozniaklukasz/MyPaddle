@@ -1,63 +1,86 @@
 @color-red: #E84A5F;
+@color-red-hov: #ce4658;
 @color-blue: #0095DD;
 @color-grey: #7797a5;
-@import url('https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900');
+@color-white: #E9EFF2;
+@import url( 'https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900');
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
-
 body {
 	background: url('../images/bg.jpg') fixed;
 	background-size: cover;
 	background-repeat: no-repeat;
-	color: #E9EFF2;
+	color: @color-white;
 	font-family: 'Orbitron', sans-serif;
+	font-weight: 300;
+}
+h1,
+h2 {
 	font-weight: 700;
 }
-
+footer,
 header,
-section,
-footer {
+section {
 	.container {
 		position: relative;
 		margin-right: auto;
-    margin-left: auto;
+		margin-left: auto;
 		width: 1200px;
 		background: rgba(0, 0, 0, 0.75);
 		padding: 20px;
-		&:before,&:after {
+		&:after,
+		&:before {
 			display: table;
-    content: " ";
+			content: " ";
 		}
 	}
 }
-
 .btn {
 	padding: 10px 20px;
 	border-radius: 3px;
 	border-bottom: 3px solid;
 	cursor: pointer;
 	font-size: 55px;
-}
-
-span {
-	color: #FECEA8;
 	font-weight: 700;
 }
-
+span {
+	color: #FECEA8;
+}
 canvas {
 	background: rgba(0, 0, 0, .60);
 	display: block;
-	margin: 0 auto;
+	float: left;
 }
-
+.canvas-nextto {
+	width: 260px;
+	height: 480px;
+	float: left;
+	display: flex;
+	justify-content: center;
+	&.canvas-right {
+		align-items: center;
+	}
+	&.canvas-left {
+		flex-direction: column;
+	}
+}
 .player-arena {
 	text-align: center;
 	padding: 20px;
 }
-
+.player-avatar {
+	text-align: center;
+	img {
+		margin: 20px 0;
+		display: none;
+	}
+	img.front {
+		display: inline;
+	}
+}
 h1 {
 	text-align: center;
 	font-size: 55px;
@@ -67,11 +90,9 @@ h1 {
 	-webkit-text-stroke: 1px white;
 	text-shadow: 1px 1px 0 @color-blue, 2px 2px 0 @color-blue, 3px 3px 0 @color-blue, 3px 4px 0 @color-blue, 3px 5px 0 @color-blue;
 }
-
 h2 {
 	margin: 30px 0;
 }
-
 .keyboard-button {
 	padding: 5px;
 	background: white;
@@ -80,24 +101,20 @@ h2 {
 	display: inline-block;
 	margin: 5px;
 }
-
 footer {
 	color: @color-grey;
-
-
-
 	font-size: 12px;
-.container {
-	border-top: 1px solid @color-grey;
-}
+	.container {
+		border-top: 1px solid @color-grey;
+	}
 	a {
-		&:visited,&:focus {
+		&:focus,
+		&:visited {
 			color: @color-red;
 			text-decoration: none;
 		}
 		&:hover {
-	color: white;
-
+			color: white;
 		}
 	}
 }
@@ -105,11 +122,13 @@ section#intro {
 	.effects {
 		display: table;
 		margin-bottom: 10px;
-		img, span {
+		img,
+		span {
 			float: left;
 		}
 		span {
 			line-height: 40px;
+			color: @color-white;
 		}
 		img {
 			margin-right: 20px;
@@ -118,7 +137,6 @@ section#intro {
 }
 section#game {
 	display: none;
-
 }
 .canvas-wr {
 	position: relative;
@@ -133,36 +151,47 @@ section#game {
 		display: none;
 		justify-content: center;
 		align-items: center;
-		flex-direction: column;font-size: 32px;
-
+		flex-direction: column;
+		font-size: 32px;
 	}
 	#steps {
 		#step {
 			color: #E84A5F;
-    	font-size: 72px;
+			font-size: 72px;
+			font-weight: 700;
 		}
 	}
 }
 .play-btn {
 	background: @color-red;
-
 	color: white;
 	margin-top: 40px;
+	&:hover {
+		background: @color-red-hov;
+	}
 }
 .canvas-graphics {
-	 display: none;
-}
-
-.player-arena {
-	img {
-		display: none;
-	}
-	img.front {
-		display: inline;
-	}
+	display: none;
 }
 
 .btn-center {
-	margin:0 auto;
+	margin: 0 auto;
 	display: table;
+}
+
+.levitate {
+  -webkit-animation: levitate-def 7s infinite;
+  -moz-animation: levitate-def 7s infinite;
+}
+
+@-webkit-keyframes levitate-def {
+  0% {
+    -webkit-transform: translateY(-30px);
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+  }
+  100% {
+    -webkit-transform: translateY(-30px);
+  }
 }
